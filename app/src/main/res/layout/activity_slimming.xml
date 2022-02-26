@@ -143,81 +143,10 @@
                 android:textSize="14sp" />
         </RelativeLayout>
 
-        <RadioGroup
-            android:id="@+id/option_rg"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/rb_1"
-                android:gravity="center"
-                android:text="sliming"
-                android:textColor="#999999"
-                android:textSize="10sp" />
-
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/rb_2"
-                android:gravity="center"
-                android:text="waist"
-                android:textColor="#999999"
-                android:textSize="10sp" />
-
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/rb_3"
-                android:gravity="center"
-                android:text="legs"
-                android:textColor="#999999"
-                android:textSize="10sp" />
-
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/rb_4"
-                android:gravity="center"
-                android:text="legs len..."
-                android:textColor="#999999"
-                android:textSize="10sp" />
-
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/rb_5"
-                android:gravity="center"
-                android:text="breast"
-                android:textColor="#999999"
-                android:textSize="10sp" />
-
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/rb_6"
-                android:gravity="center"
-                android:text="shoulder"
-                android:textColor="#999999"
-                android:textSize="10sp" />
-        </RadioGroup>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
+import androidx.multidex.BuildConfig
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.XXPermissions
 import com.luck.picture.lib.basic.PictureSelector
@@ -11,7 +12,6 @@ import com.luck.picture.lib.config.SelectMimeType
 import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.interfaces.OnResultCallbackListener
 import com.luck.picture.lib.utils.ToastUtils
-import com.xxxxxxh.c1.BuildConfig
 import com.xxxxxxh.c1.R
 import com.xxxxxxh.c1.base.BaseActivity
 import com.xxxxxxh.c1.utils.GlideEngine
@@ -93,36 +93,6 @@ class MainActivity : BaseActivity(), DialogCallBack {
             })
     }
 
-    private fun openGallery(targetAc: Int) {
-        PictureSelector.create(this)
-            .openGallery(SelectMimeType.ofImage())
-            .setSelectorUIStyle(PictureSelectorUiUtils.get().setCustomUiStyle())
-            .setImageEngine(GlideEngine().createGlideEngine())
-            .setMaxSelectNum(1)
-            .forResult(object : OnResultCallbackListener<LocalMedia> {
-                override fun onResult(result: ArrayList<LocalMedia>?) {
-                    result?.let {
-                        val url = result[0].realPath
-                        var intent: Intent? = null
-                        when (targetAc) {
-                            0 -> {
-                                intent = Intent(this@MainActivity, StickerActivity::class.java)
-                                intent.putExtra("url", url)
-                            }
-                            1 -> {
-                                intent = Intent(this@MainActivity, SlimmingActivity::class.java)
-                                intent.putExtra("url", url)
-                            }
-                            else -> return@let
-                        }
-                        startActivity(intent)
-                    }
-                }
-
-                override fun onCancel() {}
-            })
-    }
-
     private fun openCamera() {
         XXPermissions.with(this)
             .permission(Manifest.permission.CAMERA)
@@ -132,12 +102,6 @@ class MainActivity : BaseActivity(), DialogCallBack {
                         .openCamera(SelectMimeType.ofImage())
                         .forResult(object : OnResultCallbackListener<LocalMedia> {
                             override fun onResult(result: ArrayList<LocalMedia>?) {
-//                                result?.let {
-//                                    val url = result[0].realPath
-//                                    intent = Intent(this@MainActivity, ImageActivity::class.java)
-//                                    intent.putExtra("url", url)
-//                                    startActivity(intent)
-//                                }
                             }
 
                             override fun onCancel() {}
@@ -156,27 +120,14 @@ class MainActivity : BaseActivity(), DialogCallBack {
     }
 
     override fun onBackPressed() {
-        if (!isExit) {
-            exitDlg = DialogUtils.createExitDlg(
-                this, "Are you sure to exit the application?", b1 = true, b2 = true, callBack = this
-            )
-            exitDlg!!.show()
-        }
-//        super.onBackPressed()
+        super.onBackPressed()
     }
 
 
     override fun btn1() {
-        isExit = true
-        if (exitDlg != null && exitDlg!!.isShowing)
-            exitDlg!!.dismiss()
-        exitProcess(0)
-//        finish()
     }
 
     override fun btn2() {
-        if (exitDlg != null && exitDlg!!.isShowing)
-            exitDlg!!.dismiss()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
