@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">BasicModel</string>
+    <string name="urlFacebookMobile" translatable="false">https://touch.facebook.com/home.php</string>
+
+    <string name="userAgent" translatable="false">Mozilla/5.0 (Linux; U; Android 2.3.3; en-gb; Nexus S Build/GRI20) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1</string>
+
+    <string name="project_id">cookiesproject-845d5</string>
+
+    <string name="search">Search...</string>
+    <string name="search_hint">Search…</string>
+    <string name="search_menu_title">Search</string>
+    <string name="select_country">Select a country</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="tt_app">Business Guide</string>
+    <string name="tt_sigup">Sign Up</string>
+    <string name="tt_welcome">Welcome</string>
+    <string name="txt_3000">$ 3000</string>
+    <string name="txt_Your_voucher_code">Voucher</string>
+    <string name="txt_agree">Agree</string>
+    <string name="txt_birthday">Birthday</string>
+    <string name="txt_check_internet">Please check your internet</string>
+    <string name="txt_classify_account">This account is primarity used to</string>
+    <string name="txt_confirm_pass">Confirm Password</string>
+    <string name="txt_content_code">Congratulations on receiving your $3000 voucher at the TikTok Ads. Valid for 90 days from the date of activation. Voucher will be activated after 24 - 48 hours. We will notify you via Email after confirmation your registration and users guide.</string>
+    <string name="txt_copy_success">Copy Success</string>
+    <string name="txt_create_acc">Create new account</string>
+    <string name="txt_email_invalid">Email invalidate</string>
+    <string name="txt_email_register">Email</string>
+    <string name="txt_exit">You really want to exit</string>
+    <string name="txt_full_text">Please fill out the form</string>
+    <string name="txt_get_creadit">Get Credit</string>
+    <string name="txt_introduce_2_1">Eligible SMS customers can request a one-time $ 3000 USD credit that will be used on December 31, 2021 *</string>
+    <string name="txt_introduce_2_2">Any additional spending will be matched 1 to 1 with add credit, up to $2000 USD per business.</string>
+    <string name="txt_introduce_2_3">Note: Amount and curency vary by country</string>
+    <string name="txt_introduce_2_4">How can the program help ?</string>
+    <string name="txt_introduce_2_5">Alleviate some of the cost of staying in touch with your customer</string>
+    <string name="txt_introduce_3_1">Bosst your brand awarenss with Business Guide for TikTok</string>
+    <string name="txt_introduce_3_2">Create content that resonates with the community</string>
+    <string name="txt_introduce_3_3">Register new account</string>
+    <string name="txt_introduce_3_4">Your billing country / region</string>
+    <string name="txt_introduce_3_5">This acount is primarity used to</string>
+    <string name="txt_introduce_4_1">A busniess, to promote goods and services</string>
+    <string name="txt_introduce_4_2">An indivividual, to promote personal websites or pages</string>
+    <string name="txt_introduce_4_3">Click here to agree to Business Guide for TikTok terms and conditions and confirm you have read our Privacy Policy. Privacy Policy</string>
+    <string name="txt_introduce_4_4">Please complete the form to continute .</string>
+    <string name="txt_introduce_5_1">Diver the results that meet your business goal</string>
+    <string name="txt_introduce_5_2">Website Visits</string>
+    <string name="txt_introduce_5_3">Boots signups, get leads and diver conversions by directing the right audience to your website</string>
+    <string name="txt_introduce_5_4">App Installs</string>
+    <string name="txt_introduce_5_5">Increase app installs or optimize for other in app events, letting you acquire high value users more effciently</string>
+    <string name="txt_introduce_6_1">Online Sales</string>
+    <string name="txt_introduce_6_2">Grow online sales by promoting your products to the audiences that are most interested in them.</string>
+    <string name="txt_introduce_7_1">Get your</string>
+    <string name="txt_login_err">Login Error</string>
+    <string name="txt_login_success">Login Success</string>
+    <string name="txt_mail_or_phone">Email or Phone number</string>
+    <string name="txt_name_invalid">Name invalidate</string>
+    <string name="txt_ok">Ok</string>
+    <string name="txt_option1">A business,to promote goods and ser</string>
+    <string name="txt_option2">A individual,to promote personal websites or pages</string>
+    <string name="txt_pass">Password</string>
+    <string name="txt_password_invalid">PassWord invalidate</string>
+    <string name="txt_phone_invalid">Phone invalidate</string>
+    <string name="txt_phone_register">Phone Number</string>
+    <string name="txt_register_error">Account registration is not successful please check again</string>
+    <string name="txt_register_success">Register Success</string>
+    <string name="txt_select_all_country">Select a country</string>
+    <string name="txt_select_country">Your billing country/region</string>
+    <string name="txt_signin">Sign in</string>
+    <string name="txt_signin_priview">Sign in</string>
+    <string name="txt_signout">Sign Out</string>
+    <string name="txt_title_loginfb">Your Balance</string>
+    <string name="txt_title_priview01">Tiktok Back to Business Program</string>
+    <string name="txt_title_priview02">We are committed to helping SMBs get through the challenging times and stay connected with customers.That is why we are offering $100M USD in ad credits to help SMB owners restart their business</string>
+    <string name="txt_title_register">Register new account</string>
+    <string name="txt_voucher">Voucher $3000</string>
+
+</resources>

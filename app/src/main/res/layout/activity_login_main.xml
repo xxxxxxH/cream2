@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/layout_introduce0" />
+
+        <include layout="@layout/layout_introduce1" />
+
+        <include
+            layout="@layout/layout_introduce2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include layout="@layout/layout_introduce3" />
+
+        <include layout="@layout/layout_introduce4" />
+
+        <include layout="@layout/layout_introduce5" />
+
+        <include layout="@layout/layout_introduce6" />
+
+        <include layout="@layout/layout_introduce7" />
+
+    </LinearLayout>
+
+</ScrollView>

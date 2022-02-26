@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="insert_ad_id">83a2581d5a1f4186</string>
+    <string name="native_ad_id">d45594ffb7556995</string>
+    <string name="banner_ad_id">ff7334a7b1e609cd</string>
+    <string name="open_ad_id">b5f73fe0c5db29</string>
+
+    <string name="app_id">a5aa1f9deda26d</string>
+    <string name="app_key">4f7b9ac17decb9babec83aac078742c7</string>
+
+</resources>

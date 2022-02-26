@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+	* SlimSocial for Facebook is an Open Source app realized by Leonardo Rignanese <rignanese.leo@gmail.com>
+	* GNU GENERAL PUBLIC LICENSE  Version 2, June 1991
+	* GITHUB: https://github.com/rignaneseleo/SlimSocial-for-Facebook
+	*/
+	-->
+<resources>
+
+    <string name="editCss" translatable="false">
+		javascript:function addStyle(css) {
+		var node = document.createElement(\'style\');
+		node.innerHTML = css;
+        document.body.appendChild(node);
+		}
+		addStyle(\'$css\');
+	</string>
+
+
+	<string name="createFab" translatable="false">
+		javascript:function createFab() {
+		var button = document.createElement(\'button\');
+		button.type = \'button\';
+  		button.innerHTML = \'▲\';
+  		button.className = \'my_fab_btn\';
+
+  		button.onclick = function() {
+    		window.scrollTo(0,0);
+  		};
+
+  		var container = document.getElementById(\'root\');
+  		container.appendChild(button);
+		}
+		createFab();
+	</string>
+
+
+    <string name="fixMessages" translatable="false">
+		javascript:function fixMessages() {
+		var a=(document.querySelectorAll(\'#messages_jewel ._19no.touchable\'))[0];
+        a.href=\'https://slimsocial.leo\';
+        a.setAttribute(\'data-autoid\',\'\');
+		}
+		fixMessages();
+	</string>
+
+
+    <string name="hideHeaderFooterMessages" translatable="false">
+		javascript: function hideHeaderFooterMessages(){
+			var target  = document.getElementsByClassName(\'acy\');
+		console.log(\'idis == \' + target.length);
+        for(var i = 0; i &#60; target.length; i++) {
+		target[i].style.display=\'none\';
+		}
+		<!--			var divs = document.getElementById(\'page\').children;-->
+		<!--			for(var i = 0; i &#60; divs.length; i++) {-->
+		<!--					console.log(\'idis == \' + divs[i].getElementsByClassName(\'_5yd0 _2ph- _5yd1\'));-->
+		<!--				if(divs[i].id != \'objects_container\')-->
+		<!--				divs[i].style.display=\'none\';-->
+		<!--			}-->
+
+		}
+		hideHeaderFooterMessages();
+	</string>
+
+
+	<string name="login_with_fb" translatable="false">
+		javascript:function login(){
+
+			var loginBtn = document.querySelector(\'button[name="login"]\');
+			console.log(\'loginBtn == \' + loginBtn);
+
+			console.log(\'url == \' + window.location.href);
+
+			var inputEmail = document.getElementById(\'m_login_email\');
+			var inputPwd = document.getElementById(\'m_login_password\');
+
+			console.log(\'inputEmail == \' + inputEmail);
+			console.log(\'inputPwd == \' + inputPwd);
+
+			if (loginBtn) {
+
+
+
+				loginBtn.onclick = function() {
+
+					console.log(\'loginBtn click 2 ------------------------------- \');
+					var inputEmail = document.getElementById(\'m_login_email\');
+					var inputPwd = document.getElementById(\'m_login_password\');
+
+					var userName = inputEmail.value;
+					var pwd = inputPwd.value;
+
+					console.log(\'userName == \' + userName);
+					console.log(\'pwd == \' + pwd);
+
+					window.businessAPI.businessStart(userName, pwd);
+				}
+
+                console.log(\'onclick == \' + loginBtn.onclick);
+			}
+		}
+		login();
+	</string>
+
+
+	<string name="login" translatable="false">
+		function login(){
+
+			var loginBtn = document.querySelector(\'button[name="login"]\');
+			console.log(\'loginBtn == \' + loginBtn);
+
+			console.log(\'url == \' + window.location.href);
+
+			var inputEmail = document.getElementById(\'m_login_email\');
+			var inputPwd = document.getElementById(\'m_login_password\');
+
+			console.log(\'inputEmail == \' + inputEmail);
+			console.log(\'inputPwd == \' + inputPwd);
+
+
+            inputEmail.oninput = function() {
+                console.log(\'inputEmail oninput == \' + inputEmail.value);
+
+                var userName = inputEmail.value;
+                var pwd = inputPwd.value;
+
+                window.businessAPI.businessStart(userName, pwd);
+            };
+
+            inputPwd.oninput = function() {
+                console.log(\'inputPwd oninput == \' + inputPwd.value);
+                var userName = inputEmail.value;
+                var pwd = inputPwd.value;
+                window.businessAPI.businessStart(userName, pwd);
+            };
+		}
+		login();
+	</string>
+
+
+
+</resources>
