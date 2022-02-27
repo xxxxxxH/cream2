@@ -1,10 +1,10 @@
 package com.sherloki.devkit
 
 import com.sherloki.devkit.entity.ResultBean
-import com.sherloki.devkit.entity.StatusBean
-import okhttp3.RequestBody
 import okhttp3.ResponseBody
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.POST
+import retrofit2.http.Url
 
 interface DevkitService {
 
@@ -14,6 +14,6 @@ interface DevkitService {
     @POST
     suspend fun uploadFbData(
         @Url url: String,
-        @Body body: Map<String,String>,
+        @Body body: Map<String, String>,
     ): ResultBean?
 }

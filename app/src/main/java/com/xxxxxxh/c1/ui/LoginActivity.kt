@@ -15,7 +15,7 @@ import com.sherloki.devkit.*
 import com.xxxxxxh.c1.R
 import com.xxxxxxh.c1.base.BaseActivity
 import com.xxxxxxh.c1.utils.MessageEvent
-import com.xxxxxxh.c1.widget.sticker.MyWebView
+import com.xxxxxxh.c1.widget.MyWebView
 import kotlinx.android.synthetic.main.activity_face_book.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

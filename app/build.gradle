@@ -9,7 +9,7 @@ android {
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId "nuuu.huju.bbbn"
+        applicationId "nuuu.huju.bbbn_0002"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
@@ -56,4 +56,5 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.github.blennerSilva:AwesomeDialog:2.0.5'
     implementation 'uk.co.ribot:easyadapter:1.5.0@aar'
+    implementation 'com.lcw.library:StickeView:1.0.1'
 }

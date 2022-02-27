@@ -34,5 +34,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
         android:src="@mipmap/app_splash_facebook"
-        android:visibility="visible" />
+        android:visibility="gone" />
 </RelativeLayout>

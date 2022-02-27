@@ -1,8 +1,6 @@
 package com.xxxxxxh.c1.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.app.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
 import com.awesomedialog.blennersilva.awesomedialoglibrary.AwesomeProgressDialog
@@ -10,7 +8,7 @@ import com.xxxxxxh.c1.R
 import com.xxxxxxh.c1.adapter.PhotoAdapter
 import com.xxxxxxh.c1.base.BaseActivity
 import com.xxxxxxh.c1.utils.CommonUtils
-import com.xxxxxxh.c1.utils.ImgEntity
+import com.xxxxxxh.c1.entity.ImgEntity
 import com.xxxxxxh.c1.utils.MessageEvent
 import com.xxxxxxh.c1.widget.dlg.DialogUtils
 import kotlinx.android.synthetic.main.activity_photo.*

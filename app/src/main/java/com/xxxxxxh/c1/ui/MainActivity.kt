@@ -14,12 +14,8 @@ import com.luck.picture.lib.interfaces.OnResultCallbackListener
 import com.luck.picture.lib.utils.ToastUtils
 import com.xxxxxxh.c1.R
 import com.xxxxxxh.c1.base.BaseActivity
-import com.xxxxxxh.c1.utils.GlideEngine
-import com.xxxxxxh.c1.utils.PictureSelectorUiUtils
 import com.xxxxxxh.c1.widget.dlg.DialogCallBack
-import com.xxxxxxh.c1.widget.dlg.DialogUtils
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.system.exitProcess
 
 
 class MainActivity : BaseActivity(), DialogCallBack {
@@ -117,10 +113,6 @@ class MainActivity : BaseActivity(), DialogCallBack {
                 }
             })
 
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
     }
 
 

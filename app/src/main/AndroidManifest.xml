@@ -37,6 +37,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.PreviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.CreationActivity"
             android:exported="false" />
         <activity

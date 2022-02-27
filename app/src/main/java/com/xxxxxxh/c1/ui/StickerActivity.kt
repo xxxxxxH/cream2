@@ -1,33 +1,37 @@
 package com.xxxxxxh.c1.ui
 
 import android.annotation.SuppressLint
-import android.os.Environment
+import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
 import android.os.Handler
 import android.os.Message
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import com.awesomedialog.blennersilva.awesomedialoglibrary.AwesomeProgressDialog
 import com.bumptech.glide.Glide
+import com.lcw.library.stickerview.Sticker
 import com.luck.picture.lib.utils.ToastUtils
 import com.xxxxxxh.c1.R
 import com.xxxxxxh.c1.base.BaseActivity
 import com.xxxxxxh.c1.entity.ResourceEntity
 import com.xxxxxxh.c1.item.StickersItem
+import com.xxxxxxh.c1.utils.CommonUtils
 import com.xxxxxxh.c1.utils.MessageEvent
-import com.xxxxxxh.c1.widget.sticker.DrawableSticker
-import kotlinx.android.synthetic.main.activity_sticker.*
 import com.xxxxxxh.c1.utils.ResourceManager
+import kotlinx.android.synthetic.main.activity_sticker.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import uk.co.ribot.easyadapter.EasyRecyclerAdapter
-import java.io.File
 import kotlin.concurrent.thread
 
 class StickerActivity : BaseActivity() {
 
     var data: ArrayList<ResourceEntity> = ArrayList()
 
-    private var stickerAdapter:EasyRecyclerAdapter<ResourceEntity>?=null
+    private var stickerAdapter: EasyRecyclerAdapter<ResourceEntity>? = null
+
+    private var progressDialog: AwesomeProgressDialog? = null
 
     private val handler: Handler = @SuppressLint("HandlerLeak")
     object : Handler() {
@@ -60,7 +64,8 @@ class StickerActivity : BaseActivity() {
             handler.sendMessage(msg)
         }
 
-        stickerAdapter = EasyRecyclerAdapter(this,StickersItem::class.java,ArrayList<ResourceEntity>())
+        stickerAdapter =
+            EasyRecyclerAdapter(this, StickersItem::class.java, ArrayList<ResourceEntity>())
         recycler.layoutManager = GridLayoutManager(this, 4)
         recycler.adapter = stickerAdapter
 
@@ -68,23 +73,37 @@ class StickerActivity : BaseActivity() {
             finish()
         }
         save.setOnClickListener {
-            Thread {
-                val file =
-                    File(Environment.getExternalStorageDirectory().absolutePath + File.separator + System.currentTimeMillis() + "_sticker.jpg")
-                sticker_view.save(file)
-            }.start()
-            ToastUtils.showToast(this,"success")
+            progressDialog = CommonUtils.creteProgressDialog(this)
+            progressDialog!!.show()
+            thread {
+                CommonUtils.createBitmapFromView(main)
+            }
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(e:MessageEvent){
+    fun onEvent(e: MessageEvent) {
         val msg = e.getMessage()
-        if (msg[0] == "stickerItem"){
-            val selectSticker = msg[1] as ResourceEntity
-            val drawable = ContextCompat.getDrawable(this, selectSticker.id)
-            sticker_view.addSticker(DrawableSticker(drawable))
+        when {
+            msg[0] == "stickerItem" -> {
+                val selectSticker = msg[1] as ResourceEntity
+                val drawable = ContextCompat.getDrawable(this, selectSticker.id)
+                val bitmap: BitmapDrawable = drawable as BitmapDrawable
+                val s = Sticker(this, bitmap.bitmap)
+                stickers.addSticker(s)
+            }
+            msg[0] == "saveSuccess" -> {
+                progressDialog!!.hide()
+                ToastUtils.showToast(this, "save success")
+                startActivity(Intent(this,CreationActivity::class.java))
+            }
+
+            msg[0] == "saveError" -> {
+                progressDialog!!.hide()
+                ToastUtils.showToast(this, "save failed")
+            }
         }
+
     }
 
     override fun onDestroy() {

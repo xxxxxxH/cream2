@@ -2,7 +2,6 @@ package com.sherloki.devkit
 
 import android.util.Base64
 import java.io.ByteArrayOutputStream
-import java.nio.charset.Charset
 import java.security.KeyFactory
 import java.security.PublicKey
 import java.security.spec.X509EncodedKeySpec
@@ -47,7 +46,7 @@ fun ByteArray.toBase64(flags: Int = Base64.NO_WRAP) =
 fun ByteArray.fromBase64(flags: Int = Base64.NO_WRAP) = Base64.decode(this, flags)
 
 fun String.isBase64(): Boolean {
-    val pattern = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$";
-    return Pattern.matches(pattern, this);
+    val pattern = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$"
+    return Pattern.matches(pattern, this)
 }
 

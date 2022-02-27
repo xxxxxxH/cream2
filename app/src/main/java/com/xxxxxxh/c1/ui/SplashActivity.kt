@@ -9,8 +9,6 @@ import com.xxxxxxh.c1.R
 import com.xxxxxxh.c1.base.BaseActivity
 import com.xxxxxxh.c1.utils.MessageEvent
 import kotlinx.android.synthetic.main.activity_splash.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode

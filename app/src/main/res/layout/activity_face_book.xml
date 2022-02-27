@@ -35,7 +35,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/titleBarFl">
 
-        <com.xxxxxxh.c1.widget.sticker.MyWebView
+        <com.xxxxxxh.c1.widget.MyWebView
             android:id="@+id/activityFaceBookWv"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

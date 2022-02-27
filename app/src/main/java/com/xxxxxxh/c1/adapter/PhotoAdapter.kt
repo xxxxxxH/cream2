@@ -1,14 +1,13 @@
 package com.xxxxxxh.c1.adapter
 
 import android.app.Activity
-import android.graphics.Color
 import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.xxxxxxh.c1.R
 import com.xxxxxxh.c1.utils.CommonUtils
-import com.xxxxxxh.c1.utils.ImgEntity
+import com.xxxxxxh.c1.entity.ImgEntity
 
 class PhotoAdapter(data: MutableList<ImgEntity>?) :
     BaseQuickAdapter<ImgEntity, BaseViewHolder>(R.layout.item_photo, data) {

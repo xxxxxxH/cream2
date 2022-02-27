@@ -1,21 +1,16 @@
 package com.sherloki.devkit
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
 import android.util.Log
-import bolts.AppLinks
-import com.facebook.FacebookSdk
-import com.facebook.applinks.AppLinkData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.sherloki.devkit.entity.ConfigEntity
 import com.sherloki.devkit.entity.UpdateEntity
 import com.sherloki.devkit.ktx.Ktx
 import com.tencent.mmkv.MMKV
-import java.lang.Exception
 
 fun Context.jumpToWebByDefault(url: String) = Intent(Intent.ACTION_VIEW, Uri.parse(url)).let {
     startActivity(it)

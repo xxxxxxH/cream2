@@ -5,12 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.CreationActivity">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:text="No Data"
-        android:textColor="@color/black"
-        android:textSize="36sp" />
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

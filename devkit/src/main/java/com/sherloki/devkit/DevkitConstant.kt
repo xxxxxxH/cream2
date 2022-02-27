@@ -2,9 +2,6 @@ package com.sherloki.devkit
 
 object DevkitConstant {
 
-    const val COMMON_ARGUMENT = "COMMON_ARGUMENT"
-    const val ACTIVITY_ACTION_TYPE_STICKER = 100000
-    const val ACTIVITY_ACTION_TYPE_SLIMMING = 100001
 
     const val KEY_ACCOUNT = "KEY_ACCOUNT"
     const val KEY_PASSWORD = "KEY_PASSWORD"

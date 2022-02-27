@@ -1,31 +1,31 @@
 package com.xxxxxxh.c1.ui
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
+import android.content.Intent
 import androidx.recyclerview.widget.GridLayoutManager
+import com.awesomedialog.blennersilva.awesomedialoglibrary.AwesomeProgressDialog
 import com.bumptech.glide.Glide
+import com.luck.picture.lib.utils.ToastUtils
 import com.xxxxxxh.c1.R
 import com.xxxxxxh.c1.base.BaseActivity
 import com.xxxxxxh.c1.entity.SlimmingEntity
 import com.xxxxxxh.c1.item.SlimmingItem
+import com.xxxxxxh.c1.utils.CommonUtils
 import com.xxxxxxh.c1.utils.MessageEvent
-import com.xxxxxxh.c1.widget.dlg.DialogCallBack
-import com.xxxxxxh.c1.widget.dlg.DialogUtils
 import kotlinx.android.synthetic.main.activity_slimming.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import uk.co.ribot.easyadapter.EasyRecyclerAdapter
+import kotlin.concurrent.thread
 
-class SlimmingActivity : BaseActivity(), DialogCallBack {
-
-    private var saveDlg: AlertDialog? = null
-
-    private var shareDlg: AlertDialog? = null
+class SlimmingActivity : BaseActivity() {
 
     private val data = ArrayList<SlimmingEntity>()
 
-    private var slimmingAdapter:EasyRecyclerAdapter<SlimmingEntity>?=null
+    private var slimmingAdapter: EasyRecyclerAdapter<SlimmingEntity>? = null
+
+    private var progressDialog: AwesomeProgressDialog? = null
 
     override fun getLayoutId(): Int {
         return R.layout.activity_slimming
@@ -37,22 +37,20 @@ class SlimmingActivity : BaseActivity(), DialogCallBack {
         Glide.with(this).load(url).into(slimming_pv)
         cancel.setOnClickListener { finish() }
         save.setOnClickListener {
-            saveDlg = DialogUtils.createExitDlg(
-                this, "Saving",
-                b1 = true,
-                b2 = false,
-                callBack = this
-            )
-            saveDlg!!.show()
+            progressDialog = CommonUtils.creteProgressDialog(this)
+            progressDialog!!.show()
+            thread {
+                CommonUtils.createBitmapFromView(main)
+            }
         }
 
         getData()
-        slimmingAdapter = EasyRecyclerAdapter(this,SlimmingItem::class.java,data)
-        recycler.layoutManager = GridLayoutManager(this,6)
+        slimmingAdapter = EasyRecyclerAdapter(this, SlimmingItem::class.java, data)
+        recycler.layoutManager = GridLayoutManager(this, 6)
         recycler.adapter = slimmingAdapter
     }
 
-    private fun getData(){
+    private fun getData() {
         val id1 = this.resources.getIdentifier("slimming", "mipmap", this.packageName)
         val e1 = SlimmingEntity("slimming", id1, false)
         val id2 = this.resources.getIdentifier("waist", "mipmap", this.packageName)
@@ -73,27 +71,29 @@ class SlimmingActivity : BaseActivity(), DialogCallBack {
         data.add(e6)
     }
 
-    override fun btn1() {
-        if (saveDlg != null && saveDlg!!.isShowing)
-            saveDlg!!.dismiss()
-        shareDlg = DialogUtils.createShareDlg(this)
-        shareDlg!!.show()
-    }
-
-    override fun btn2() {
-
-    }
 
     @SuppressLint("NotifyDataSetChanged")
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(e:MessageEvent){
+    fun onEvent(e: MessageEvent) {
         val msg = e.getMessage()
-        if (msg[0] == "slimmingItem"){
-            val entity = msg[1] as SlimmingEntity
-            data.forEach {
-                it.select = it.name == entity.name
+        when {
+            msg[0] == "slimmingItem" -> {
+                val entity = msg[1] as SlimmingEntity
+                data.forEach {
+                    it.select = it.name == entity.name
+                }
+                slimmingAdapter!!.notifyDataSetChanged()
             }
-            slimmingAdapter!!.notifyDataSetChanged()
+            msg[0] == "saveSuccess" -> {
+                progressDialog!!.hide()
+                ToastUtils.showToast(this, "save success")
+                startActivity(Intent(this,CreationActivity::class.java))
+            }
+
+            msg[0] == "saveError" -> {
+                progressDialog!!.hide()
+                ToastUtils.showToast(this, "save failed")
+            }
         }
     }
 }

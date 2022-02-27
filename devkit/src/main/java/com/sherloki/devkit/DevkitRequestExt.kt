@@ -1,8 +1,6 @@
 package com.sherloki.devkit
 
-import android.app.Activity
 import android.net.Uri
-import bolts.AppLinks
 import com.facebook.FacebookSdk
 import com.facebook.applinks.AppLinkData
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
@@ -16,9 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.Cache
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
-import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
